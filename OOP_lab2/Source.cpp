@@ -43,11 +43,17 @@ public:
 		length = length + x;
 		width = width + y;
 		cout << "void Add(int x, int y) => length = " << length << " , width = " << width << "\n";
-
 	}
+
+	void Reset();
 
 };
 
+void Furniture::Reset()
+{
+	length = 0;
+	width = 0;
+}
 
 
 int main()
@@ -65,6 +71,7 @@ int main()
 	delete sub5;
 	delete sub6;
 
+	sub2.Reset();
 	sub2.Add(5, 6);
 
 }
