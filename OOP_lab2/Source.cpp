@@ -33,7 +33,7 @@ public:
 
 	}
 
-	~Furniture()
+	virtual	~Furniture()
 	{
 		cout << length << ", " << width << "\n";
 		cout << "~Furniture()\n";
@@ -102,25 +102,41 @@ void Furniture::Reset() // реализация метода после определения
 
 int main()
 {
-	Furniture sub;
-	Furniture sub2(10, 15);
-	Furniture sub3(sub2);
+	Furniture sub1(10, 15);
 	cout << "\n";
 
-	Furniture* sub4 = new Furniture;
-	Furniture* sub5 = new Furniture(10, 15);
-	Furniture* sub6 = new Furniture(*sub5);
+	Furniture* sub2 = new Furniture(sub1);
 	cout << "\n";
 
-	delete sub4;
-	delete sub5;
-	delete sub6;
+	delete sub2;
 	cout << "\n";
 
-	sub2.Reset();
-	sub2.Add(5, 6);
+	sub1.Reset();
+	sub1.Add(5, 6);
+	cout << "\n";
+	
+
+	Table *tab1 = new Table(1,2,"blue");
+	tab1->ChangeColor("red");
+	delete tab1;
 	cout << "\n";
 
-	Table tab1(1,2,"blue");
-	tab1.ChangeColor("red");
+	Furniture* subj = new Table(2, 4, "white");
+	delete subj;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	cout<<"\n";
+
 }
