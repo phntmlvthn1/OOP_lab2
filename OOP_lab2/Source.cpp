@@ -3,10 +3,11 @@ using namespace std;
 
 class Furniture
 {
-public:
+
+private:
 	int length, width;
 
-
+public:
 
 	Furniture()
 	{
@@ -37,19 +38,33 @@ public:
 		cout << "~Furniture()\n";
 	}
 
+	void Add(int x, int y)
+	{
+		length = length + x;
+		width = width + y;
+		cout << "void Add(int x, int y) => length = " << length << " , width = " << width << "\n";
+
+	}
+
 };
 
 
 
 int main()
 {
-	Furniture sub1;
+	Furniture sub;
 	Furniture sub2(10, 15);
 	Furniture sub3(sub2);
 	cout << "\n";
 
-	Furniture *sub4 = new Furniture;
-	Furniture *sub5 = new Furniture(10, 15);
-	Furniture *sub6 = new Furniture(*sub5);
+	Furniture* sub4 = new Furniture;
+	Furniture* sub5 = new Furniture(10, 15);
+	Furniture* sub6 = new Furniture(*sub5);
+
+	delete sub4;
+	delete sub5;
+	delete sub6;
+
+	sub2.Add(5, 6);
 
 }
