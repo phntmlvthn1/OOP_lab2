@@ -93,6 +93,47 @@ public:
 
 };
 
+class Chair
+{
+protected:
+	Furniture* f1;
+	Furniture* f2;
+
+	
+
+public:
+
+	Chair()
+	{
+		cout << "Chair()\n";
+		f1 = new Furniture;
+		f2 = new Furniture;
+
+	}
+
+	Chair(int l1, int l2, int w1, int w2)
+	{
+		cout << "Chair(int l1, int l2, int w1, int w2)\n";
+		f1 = new Furniture(l1, w1);
+		f2 = new Furniture(l2, w2);
+	}
+
+	Chair(const Chair& c)
+	{
+		cout << "Chair(const Chair &f)\n";
+		f1 = new Furniture(*(c.f1)); 
+		f2 = new Furniture(*(c.f2));
+	}
+
+	virtual	~Chair()
+	{
+		cout << "~Chair()\n";
+		delete f1;
+		delete f2;
+	}
+
+};
+
 void Furniture::Reset() // реализация метода после определения
 {
 	length = 0;
@@ -123,20 +164,13 @@ int main()
 
 	Furniture* subj = new Table(2, 4, "white");
 	delete subj;
+	cout << "\n";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+	Chair* c1 = new Chair(1,2,3,4);
+	Chair * c2 = new Chair(*c1);
+	cout << "\n";
+	delete c1;
+	delete c2;
 	cout<<"\n";
 
 }
