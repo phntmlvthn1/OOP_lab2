@@ -43,11 +43,13 @@ public:
 
 int main()
 {
-	Furniture sub;
+	Furniture sub1;
 	Furniture sub2(10, 15);
 	Furniture sub3(sub2);
 	cout << "\n";
 
-
+	Furniture *sub4 = new Furniture;
+	Furniture *sub5 = new Furniture(10, 15);
+	Furniture *sub6 = new Furniture(*sub5);
 
 }
